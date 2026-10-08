@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OVTIX - Sistema Óptico Infrarrojo de Visualización Vascular</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #070a0f;
+            --card-bg: #0d1117;
+            --card-border: #21262d;
+            --accent-purple: #8a2be2;
+            --accent-cyan: #00f2fe;
+            --accent-green: #00ff87;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Glassmorphism Header */
+        .hero-section {
+            background: radial-gradient(circle at 50% 20%, rgba(138, 43, 226, 0.2) 0%, rgba(7, 10, 15, 1) 70%);
+            border-bottom: 1px solid var(--card-border);
+            padding: 4rem 1rem 3rem 1rem;
+        }
+
+        .card-tech {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+            height: 100%;
+        }
+
+        .card-tech:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-purple);
+        }
+
+        .badge-tag {
+            background: rgba(138, 43, 226, 0.2);
+            color: #d8b4fe;
+            border: 1px solid rgba(138, 43, 226, 0.4);
+            font-size: 0.75rem;
+            padding: 0.35rem 0.65rem;
+            border-radius: 6px;
+        }
+
+        /* Timeline de Desarrollo */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid var(--card-border);
+            margin-bottom: 1.5rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+        }
+
+        /* Pipeline Visual */
+        .pipeline-step {
+            background: #161b22;
+            border-left: 3px solid var(--accent-cyan);
+            padding: 0.85rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .live-preview-box {
+            background: #000;
+            border: 2px solid var(--accent-purple);
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.3);
+        }
+
+        .nav-pills .nav-link {
+            color: var(--text-muted);
+            border-radius: 8px;
+            padding: 0.6rem 1.2rem;
+        }
+        .nav-pills .nav-link.active {
+            background-color: var(--accent-purple);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero-section text-center">
+        <div class="container">
+            <div class="d-flex justify-content-center gap-2 mb-3 flex-wrap">
+                <span class="badge-tag"><i class="fa-solid fa-microchip me-1"></i> RASPBERRY PI 3B+</span>
+                <span class="badge-tag"><i class="fa-solid fa-eye me-1"></i> OPTICA NIR 850nm</span>
+                <span class="badge-tag"><i class="fa-solid fa-code me-1"></i> OPENCV + PYTHON</span>
+            </div>
+            <h1 class="display-4 text-white mb-2">OVTIX</h1>
+            <p class="lead text-info font-heading">Sistema Óptico Infrarrojo para Visualización Vascular Subcutánea</p>
+            <p class="text-muted small mx-auto" style="max-width: 650px;">
+                Proyecto de investigación y desarrollo tecnológico presentado en la Expo Universidad Blas Pascal. Enfoque en procesamiento digital de imágenes biomédicas y espectroscopía NIR de bajo costo.
+            </p>
+            
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <a href="#demostracion" class="btn btn-primary px-4 fw-bold" style="background-color: var(--accent-purple); border:none;">
+                    <i class="fa-solid fa-images me-2"></i>Ver Resultados Reales
+                </a>
+                <a href="#fundamento" class="btn btn-outline-secondary px-4 text-light">
+                    <i class="fa-solid fa-book-open me-2"></i>Informe Técnico
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container my-5">
+
+        <!-- NAVEGACIÓN RÁPIDA -->
+        <ul class="nav nav-pills justify-content-center mb-5 gap-2" id="mainTabs">
+            <li class="nav-item"><a class="nav-link active" href="#fundamento"><i class="fa-solid fa-wave-square me-1"></i> Fundamento Óptico</a></li>
+            <li class="nav-item"><a class="nav-link" href="#pipeline"><i class="fa-solid fa-diagram-project me-1"></i> Pipeline Digital</a></li>
+            <li class="nav-item"><a class="nav-link" href="#hardware"><i class="fa-solid fa-cubes me-1"></i> Hardware y Estructura</a></li>
+            <li class="nav-item"><a class="nav-link" href="#bitacora"><i class="fa-solid fa-timeline me-1"></i> Evolución</a></li>
+        </ul>
+
+        <!-- SECTION 1: FUNDAMENTO ÓPTICO Y FÍSICO -->
+        <section id="fundamento" class="mb-5">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <div class="card-tech p-4">
+                        <h3 class="text-white mb-3"><i class="fa-solid fa-lightbulb text-warning me-2"></i>¿Por qué luz Infrarroja (NIR)?</h3>
+                        <p>
+                            La piel y los tejidos superficiales dispersan la luz visible convencional. Sin embargo, en el espectro del <strong>Infrarrojo Cercano (850 nm)</strong> ocurre una respuesta biomédica clave:
+                        </p>
+                        <div class="p-3 mb-3" style="background: #161b22; border-left: 3px solid var(--accent-purple); border-radius: 4px;">
+                            <strong class="text-light">Absorción Diferencial de la Hemoglobina:</strong><br>
+                            La sangre venosa desoxigenada absorbe fuertemente los fotones de 850 nm, mientras que la piel y la grasa subcutánea la reflejan. La cámara captura esta diferencia de contraste como una "sombra" precisa de la red vascular.
+                        </div>
+                        <ul class="text-muted small">
+                            <li><strong>Iluminación Activa:</strong> Módulos LED de 850 nm (3W) enfocados para penetrar la piel sin generar calor incómodo.</li>
+                            <li><strong>Cámara NoIR (OV5647):</strong> Modificada sin filtro infrarrojo para captar el rango invisible a la vista humana.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card-tech p-4 text-center">
+                        <h5 class="text-info mb-3">Esquema de Transmisión Óptica</h5>
+                        <div class="p-4 rounded bg-black d-flex flex-column align-items-center justify-content-center" style="min-height: 220px;">
+                            <i class="fa-solid fa-bolt-lightning text-warning display-4 mb-3"></i>
+                            <span class="code-font text-success">Luz IR 850nm ---> Piel (Refleja) / Venas (Absorben)</span>
+                            <span class="code-font text-primary mt-2">Diferencia Matriz Grayscale: ΔI = I_piel - I_vena</span>
+                        </div>
+                        <p class="text-muted small mt-3 mb-0">Esta diferencia de intensidad es procesada cuadro a cuadro mediante OpenCV a 30 FPS.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: MUESTRA DE RESULTADOS CAPTURADOS -->
+        <section id="demostracion" class="mb-5">
+            <div class="live-preview-box p-4">
+                <h3 class="text-white mb-2 text-center"><i class="fa-solid fa-microscope text-success me-2"></i>Demostración de Resultados</h3>
+                <p class="text-muted text-center mb-4">Capturas del prototipo procesando estructuras vasculares subcutáneas en vivo:</p>
+                
+                <div class="row g-4">
+                    <div class="col-md-6 text-center">
+                        <div class="p-3 bg-dark rounded border border-secondary">
+                            <h6 class="text-info mb-2">Filtro Frangi + Gradiente Púrpura</h6>
+                            <p class="text-muted small mb-0">Segmentación de vasos tubulares e inversión de brillo para visión clínica.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <div class="p-3 bg-dark rounded border border-secondary">
+                            <h6 class="text-info mb-2">CLAHE + Corrección Homomórfica</h6>
+                            <p class="text-muted small mb-0">Ecualización adaptativa local eliminando la luz ambiente desigual.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: PIPELINE DIGITAL DE PROCESAMIENTO -->
+        <section id="pipeline" class="mb-5">
+            <h3 class="text-white mb-4"><i class="fa-solid fa-code-compare text-info me-2"></i>Pipeline de Algoritmos Digitales</h3>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card-tech p-4">
+                        <h5 class="text-warning mb-3">1. Pre-Procesamiento</h5>
+                        <div class="pipeline-step">
+                            <strong>Captura Picamera2 / Zero-Copy:</strong>
+                            <div class="text-muted small">Mapeo directo de memoria RAM sin retardos de copia de imagen.</div>
+                        </div>
+                        <div class="pipeline-step">
+                            <strong>Filtro Bilateral:</strong>
+                            <div class="text-muted small">Elimina el ruido de grano y pelos conservando los bordes de la piel.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card-tech p-4">
+                        <h5 style="color: var(--accent-cyan);" class="mb-3">2. Extracción Vascular</h5>
+                        <div class="pipeline-step">
+                            <strong>Filtro Frangi (Vesselness):</strong>
+                            <div class="text-muted small">Matriz Hessiana para aislar exclusivamente estructuras tubulares.</div>
+                        </div>
+                        <div class="pipeline-step">
+                            <strong>CLAHE Adaptativo:</strong>
+                            <div class="text-muted small">Mejora el contraste local en regiones cuadradas de 8x8 píxeles.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card-tech p-4">
+                        <h5 style="color: var(--accent-green);" class="mb-3">3. Pseudocolor & Render</h5>
+                        <div class="pipeline-step">
+                            <strong>Ajuste Gamma & Contraste 128:</strong>
+                            <div class="text-muted small">Profundiza los tonos venosos sin quemar las zonas expuestas.</div>
+                        </div>
+                        <div class="pipeline-step">
+                            <strong>Mapeo Púrpura Clínico:</strong>
+                            <div class="text-muted small">Canales BGR calibrados para máxima sensibilidad visual del ojo.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: HARDWARE Y ESTRUCTURA -->
+        <section id="hardware" class="mb-5">
+            <div class="card-tech p-4">
+                <h3 class="text-white mb-4"><i class="fa-solid fa-cubes-stacked text-purple me-2"></i>Gabinete e Ingeniería de Hardware</h3>
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush bg-transparent">
+                            <li class="list-group-item bg-transparent text-light border-secondary">
+                                <strong>Unidad Central:</strong> Raspberry Pi 3 Model B+ (Quad-Core 1.4GHz)
+                            </li>
+                            <li class="list-group-item bg-transparent text-light border-secondary">
+                                <strong>Sensor Óptico:</strong> Módulo OV5647 NoIR 5MP (Ajuste EV por software)
+                            </li>
+                            <li class="list-group-item bg-transparent text-light border-secondary">
+                                <strong>Iluminación IR:</strong> LEDs infrarrojos de 850nm (3W) con disipación metálica
+                            </li>
+                            <li class="list-group-item bg-transparent text-light border-secondary">
+                                <strong>Gabinete Técnico:</strong> Chasis rígido de 46 cm de alto en madera MDF
+                            </li>
+                            <li class="list-group-item bg-transparent text-light border-secondary">
+                                <strong>Alimentación:</strong> Fuente conmutada 5V / 3A con conector industrial IEC
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <div class="p-4 rounded border border-secondary bg-black">
+                            <i class="fa-solid fa-box-open text-muted display-1 mb-3"></i>
+                            <h6 class="text-light">Diseño Modular Estable</h6>
+                            <p class="text-muted small">Mantiene constante la distancia focal entre el sensor, la iluminación y la zona anatómica bajo análisis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: BITÁCORA Y EVOLUCIÓN -->
+        <section id="bitacora" class="mb-5">
+            <h3 class="text-white mb-4"><i class="fa-solid fa-clock-rotate-left text-warning me-2"></i>Evolución del Proyecto</h3>
+            <div class="card-tech p-4">
+                <div class="timeline-item">
+                    <h6 class="text-info mb-1">Marzo 2026 - Investigación Inicial</h6>
+                    <p class="text-muted small mb-0">Definición del problema de punción venosa. Estudio del espectro óptico NIR en sangre desoxigenada.</p>
+                </div>
+                <div class="timeline-item">
+                    <h6 class="text-info mb-1">Mayo / Junio 2026 - Pruebas de Algoritmos</h6>
+                    <p class="text-muted small mb-0">Primeras pruebas de código en Python y OpenCV. Integración de filtros de realce de contraste CLAHE.</p>
+                </div>
+                <div class="timeline-item">
+                    <h6 class="text-info mb-1">Agosto 2026 - Maquetado y Diseño Físico</h6>
+                    <p class="text-muted small mb-0">Construcción del prototipo en cartón para comprobar distancias de enfoque y posición de los LEDs.</p>
+                </div>
+                <div class="timeline-item">
+                    <h6 class="text-info mb-1">Septiembre / Octubre 2026 - Versión Final OVTIX</h6>
+                    <p class="text-muted small mb-0">Montaje en gabinete MDF de 46 cm, optimización de streaming a 30 FPS y filtros biomédicos de Frangi/Sato.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-4 border-top border-secondary text-muted small">
+        <div class="container">
+            <p class="mb-1"><strong>OVTIX</strong> — Sistema Óptico Infrarrojo de Visualización Vascular</p>
+            <p class="mb-0">Desarrollado por Jazmín Van de Koppel, Gonzalo Molina y Tomás Reyna | Instituto Luis M. Robles - Universidad Blas Pascal</p>
+        </div>
+    </footer>
+
+</body>
+</html>
