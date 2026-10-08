@@ -39,7 +39,6 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Glassmorphism Header */
         .hero-section {
             background: radial-gradient(circle at 50% 20%, rgba(138, 43, 226, 0.2) 0%, rgba(7, 10, 15, 1) 70%);
             border-bottom: 1px solid var(--card-border);
@@ -68,7 +67,6 @@
             border-radius: 6px;
         }
 
-        /* Timeline de Desarrollo */
         .timeline-item {
             position: relative;
             padding-left: 2rem;
@@ -86,7 +84,6 @@
             background: var(--accent-cyan);
         }
 
-        /* Pipeline Visual */
         .pipeline-step {
             background: #161b22;
             border-left: 3px solid var(--accent-cyan);
@@ -131,10 +128,7 @@
             </p>
             
             <div class="d-flex justify-content-center gap-3 mt-4">
-                <a href="#demostracion" class="btn btn-primary px-4 fw-bold" style="background-color: var(--accent-purple); border:none;">
-                    <i class="fa-solid fa-images me-2"></i>Ver Resultados Reales
-                </a>
-                <a href="#fundamento" class="btn btn-outline-secondary px-4 text-light">
+                <a href="#fundamento" class="btn btn-primary px-4 fw-bold" style="background-color: var(--accent-purple); border:none;">
                     <i class="fa-solid fa-book-open me-2"></i>Informe Técnico
                 </a>
             </div>
@@ -184,30 +178,7 @@
             </div>
         </section>
 
-        <!-- SECTION 2: MUESTRA DE RESULTADOS CAPTURADOS -->
-        <section id="demostracion" class="mb-5">
-            <div class="live-preview-box p-4">
-                <h3 class="text-white mb-2 text-center"><i class="fa-solid fa-microscope text-success me-2"></i>Demostración de Resultados</h3>
-                <p class="text-muted text-center mb-4">Capturas del prototipo procesando estructuras vasculares subcutáneas en vivo:</p>
-                
-                <div class="row g-4">
-                    <div class="col-md-6 text-center">
-                        <div class="p-3 bg-dark rounded border border-secondary">
-                            <h6 class="text-info mb-2">Filtro Frangi + Gradiente Púrpura</h6>
-                            <p class="text-muted small mb-0">Segmentación de vasos tubulares e inversión de brillo para visión clínica.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <div class="p-3 bg-dark rounded border border-secondary">
-                            <h6 class="text-info mb-2">CLAHE + Corrección Homomórfica</h6>
-                            <p class="text-muted small mb-0">Ecualización adaptativa local eliminando la luz ambiente desigual.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3: PIPELINE DIGITAL DE PROCESAMIENTO -->
+        <!-- SECTION 2: PIPELINE DIGITAL DE PROCESAMIENTO -->
         <section id="pipeline" class="mb-5">
             <h3 class="text-white mb-4"><i class="fa-solid fa-code-compare text-info me-2"></i>Pipeline de Algoritmos Digitales</h3>
             <div class="row g-4">
@@ -255,7 +226,7 @@
             </div>
         </section>
 
-        <!-- SECTION 4: HARDWARE Y ESTRUCTURA -->
+        <!-- SECTION 3: HARDWARE Y ESTRUCTURA -->
         <section id="hardware" class="mb-5">
             <div class="card-tech p-4">
                 <h3 class="text-white mb-4"><i class="fa-solid fa-cubes-stacked text-purple me-2"></i>Gabinete e Ingeniería de Hardware</h3>
@@ -266,7 +237,7 @@
                                 <strong>Unidad Central:</strong> Raspberry Pi 3 Model B+ (Quad-Core 1.4GHz)
                             </li>
                             <li class="list-group-item bg-transparent text-light border-secondary">
-                                <strong>Sensor Óptico:</strong> Módulo OV5647 NoIR 5MP (Ajuste EV por software)
+                                <strong>Sensor Óptico:</strong> Módulo OV5647 NoIR 5MP
                             </li>
                             <li class="list-group-item bg-transparent text-light border-secondary">
                                 <strong>Iluminación IR:</strong> LEDs infrarrojos de 850nm (3W) con disipación metálica
@@ -290,7 +261,7 @@
             </div>
         </section>
 
-        <!-- SECTION 5: BITÁCORA Y EVOLUCIÓN -->
+        <!-- SECTION 4: BITÁCORA Y EVOLUCIÓN -->
         <section id="bitacora" class="mb-5">
             <h3 class="text-white mb-4"><i class="fa-solid fa-clock-rotate-left text-warning me-2"></i>Evolución del Proyecto</h3>
             <div class="card-tech p-4">
