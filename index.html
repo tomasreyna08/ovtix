@@ -33,7 +33,7 @@
             line-height: 1.6;
         }
 
-        /* Corrección forzada para textos chicos y mutados */
+        /* Corrección forzada para textos chicos */
         p, span, li, small, td, th {
             color: var(--text-main) !important;
         }
@@ -124,8 +124,8 @@
             </p>
             <div class="p-3 bg-dark d-inline-block rounded border border-secondary mt-2">
                 <small style="color: var(--text-sub) !important;">
-                    <strong>Desarrollado por:</strong> Jazmín Van de Koppel, Gonzalo Molina, Tomás Reyna[cite: 1, 24]<br>
-                    <strong>Institución:</strong> Instituto Técnico Luis M. Robles | <strong>Docentes:</strong> Saravia Martín, Sánchez Gustavo[cite: 1, 24]
+                    <strong>Desarrollado por:</strong> Jazmín Van de Koppel, Gonzalo Molina, Tomás Reyna<br>
+                    <strong>Institución:</strong> Instituto Técnico Luis M. Robles | <strong>Docentes:</strong> Saravia Martín, Sánchez Gustavo
                 </small>
             </div>
         </div>
@@ -151,10 +151,10 @@
                     <div class="card-tech p-4">
                         <h4 class="text-warning mb-3">El Desafío del Acceso Vascular</h4>
                         <p style="color: var(--text-sub) !important;">
-                            La venopunción (extracción de sangre, canalización o colocación de vías) es uno de los procedimientos médicos más frecuentes[cite: 2, 3]. Sin embargo, su tasa de fallo en el primer intento resulta elevada en pacientes pediátricos, geriátricos, con obesidad, tonos de piel oscuros o vascularización colapsada[cite: 3].
+                            La venopunción (extracción de sangre, canalización o colocación de vías) es uno de los procedimientos médicos más frecuentes. Sin embargo, su tasa de fallo en el primer intento resulta elevada en pacientes pediátricos, geriátricos, con obesidad, tonos de piel oscuros o vascularización colapsada.
                         </p>
                         <p style="color: var(--text-muted-custom) !important;" class="small">
-                            Factores como la profundidad del vaso, la escasa visibilidad bajo iluminación blanca y la falta de contraste natural dificultan la localización por palpación tradicional[cite: 3]. Los equipos comerciales que resuelven esta problemática poseen costos inaccesibles para la mayoría de centros educativos o de atención primaria[cite: 13, 14, 15].
+                            Factores como la profundidad del vaso, la escasa visibilidad bajo iluminación blanca y la falta de contraste natural dificultan la localización por palpación tradicional. Los equipos comerciales que resuelven esta problemática poseen costos inaccesibles para la mayoría de centros educativos o de atención primaria.
                         </p>
                     </div>
                 </div>
@@ -165,10 +165,10 @@
                             OVTIX democratiza el acceso a esta tecnología mediante un prototipo modular de bajo costo que combina:
                         </p>
                         <ul style="color: var(--text-sub) !important;" class="small">
-                            <li><strong>Iluminación Activa NIR a 850 nm:</strong> Penetra el tejido superficial sin molestias térmicas[cite: 3, 4, 19].</li>
-                            <li><strong>Captura Sensible sin Filtro IR:</strong> Cámara OV5647 NoIR conectada por bus CSI[cite: 4, 6, 27].</li>
-                            <li><strong>Procesamiento Digital de Alta Velocidad:</strong> Reducción de ruido y realce adaptativo de contraste en Python/OpenCV sobre Raspberry Pi 3B+[cite: 4, 6, 26].</li>
-                            <li><strong>Gabinete Modular de MDF (46 cm):</strong> Distancia focal y luz controladas para repetibilidad[cite: 7, 14, 37].</li>
+                            <li><strong>Iluminación Activa NIR a 850 nm:</strong> Penetra el tejido superficial sin molestias térmicas.</li>
+                            <li><strong>Captura Sensible sin Filtro IR:</strong> Cámara OV5647 NoIR conectada por bus CSI.</li>
+                            <li><strong>Procesamiento Digital de Alta Velocidad:</strong> Reducción de ruido y realce adaptativo de contraste en Python/OpenCV sobre Raspberry Pi 3B+.</li>
+                            <li><strong>Gabinete Modular de MDF (46 cm):</strong> Distancia focal y luz controladas para repetibilidad.</li>
                         </ul>
                     </div>
                 </div>
@@ -185,21 +185,21 @@
                     <div class="col-md-6">
                         <h5 class="text-info">La Ventana Óptica del Tejido</h5>
                         <p style="color: var(--text-sub) !important;">
-                            La piel y la grasa humana son altamente dispersantes para la luz visible (400 - 700 nm). Sin embargo, en el rango del <strong>Infrarrojo Cercano (NIR)</strong>, entre 700 nm y 900 nm, existe una "ventana óptica" donde la luz penetra varios milímetros bajo la epidermis[cite: 3, 4, 14].
+                            La piel y la grasa humana son altamente dispersantes para la luz visible (400 - 700 nm). Sin embargo, en el rango del <strong>Infrarrojo Cercano (NIR)</strong>, entre 700 nm y 900 nm, existe una "ventana óptica" donde la luz penetra varios milímetros bajo la epidermis.
                         </p>
                         <p style="color: var(--text-sub) !important;">
-                            A la longitud de onda específica de <strong>850 nm</strong>, la <strong>desoxhemoglobina</strong> presente en la sangre venosa posee un coeficiente de absorción significativamente mayor que el agua y los tejidos circundantes[cite: 3, 4, 18].
+                            A la longitud de onda específica de <strong>850 nm</strong>, la <strong>desoxhemoglobina</strong> presente en la sangre venosa posee un coeficiente de absorción significativamente mayor que el agua y los tejidos circundantes.
                         </p>
                     </div>
                     <div class="col-md-6">
                         <h5 class="text-info">Mecanismo de Generación de Contraste</h5>
                         <div class="p-3 bg-black rounded border border-secondary code-font small mb-3">
                             <span class="text-warning">Luz NIR (850nm)</span> ---> Incide sobre el área subcutánea<br>
-                            ├── <span class="text-info">Tejido / Grasa:</span> REFLEJAN la luz NIR (Fotones rebotan al sensor)[cite: 3, 4]<br>
-                            └── <span class="text-danger">Venas (Desoxhemoglobina):</span> ABSORBEN la luz NIR (Sombra oscura)[cite: 3, 4, 18]
+                            ├── <span class="text-info">Tejido / Grasa:</span> REFLEJAN la luz NIR (Fotones rebotan al sensor)<br>
+                            └── <span class="text-danger">Venas (Desoxhemoglobina):</span> ABSORBEN la luz NIR (Sombra oscura)
                         </div>
                         <p style="color: var(--text-muted-custom) !important;" class="small">
-                            La cámara captura una matriz de gradientes de gris donde las estructuras venosas se manifiestan como valles de baja intensidad fotónica[cite: 4, 6, 18].
+                            La cámara captura una matriz de gradientes de gris donde las estructuras venosas se manifiestan como valles de baja intensidad fotónica.
                         </p>
                     </div>
                 </div>
@@ -208,12 +208,12 @@
 
         <div class="section-divider"></div>
 
-        <!-- SECCIÓN 3: COMPARA TIVA DE COSTOS -->
+        <!-- SECCIÓN 3: COMPARATIVA DE COSTOS -->
         <section id="costos" class="mb-5">
             <h3 class="text-white mb-4"><i class="fa-solid fa-sack-dollar text-success me-2"></i>3. Viabilidad Económica y Comparativa de Mercado</h3>
             <div class="card-tech p-4">
                 <p style="color: var(--text-sub) !important;" class="mb-4">
-                    Una de las principales innovaciones de OVTIX radica en su ingeniería de bajo costo. Mientras que los escáneres vasculares comerciales representan inversiones inaccesibles, OVTIX logra un rendimiento funcional óptimo utilizando componentes de consumo masivo[cite: 2, 4, 12].
+                    Una de las principales innovaciones de OVTIX radica en su ingeniería de bajo costo. Mientras que los escáneres vasculares comerciales representan inversiones inaccesibles, OVTIX logra un rendimiento funcional óptimo utilizando componentes de consumo masivo.
                 </p>
 
                 <div class="table-responsive">
@@ -228,30 +228,30 @@
                         <tbody>
                             <tr>
                                 <td><strong>Costo Estimado</strong></td>
-                                <td><span class="text-danger fw-bold">USD $4.000 – $6.000</span>[cite: 14, 15]</td>
+                                <td><span class="text-danger fw-bold">USD $4.000 – $6.000</span></td>
                                 <td><span class="text-success fw-bold">~ $265.000 ARS</span> (Componentes directa)</td>
                             </tr>
                             <tr>
                                 <td><strong>Unidad de Cómputo</strong></td>
                                 <td>Procesador propietario cerrado</td>
-                                <td>Raspberry Pi 3 Model B+ (Open-source)[cite: 6, 7, 19]</td>
+                                <td>Raspberry Pi 3 Model B+ (Open-source)</td>
                             </tr>
                             <tr>
                                 <td><strong>Captura Óptica</strong></td>
-                                <td>Sensores láser/infrarrojos de alta gama[cite: 14, 15]</td>
-                                <td>Cámara OV5647 NoIR (5 MP) + LEDs 850nm (3W)[cite: 6, 7, 19]</td>
+                                <td>Sensores láser/infrarrojos de alta gama</td>
+                                <td>Cámara OV5647 NoIR (5 MP) + LEDs 850nm (3W)</td>
                             </tr>
                             <tr>
                                 <td><strong>Arquitectura</strong></td>
-                                <td>Sistema médico cerrado e inmodificable[cite: 11]</td>
-                                <td>Modular, escalable y reparable de bajo costo[cite: 5, 10, 11]</td>
+                                <td>Sistema médico cerrado e inmodificable</td>
+                                <td>Modular, escalable y reparable de bajo costo</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="p-3 bg-black rounded border border-secondary mt-3">
                     <small style="color: var(--accent-green) !important;">
-                        <strong>Impacto:</strong> Se demuestra que es posible implementar un sistema funcional de observación vascular reduciendo los costos de hardware en más de un 90% en comparación con alternativas comerciales[cite: 2, 11, 12].
+                        <strong>Impacto:</strong> Se demuestra que es posible implementar un sistema funcional de observación vascular reduciendo los costos de hardware en más de un 90% en comparación con alternativas comerciales.
                     </small>
                 </div>
             </div>
@@ -267,11 +267,11 @@
                     <div class="card-tech p-4">
                         <h5 class="text-cyan mb-3">Conexión Física (Interfaz CSI)</h5>
                         <p style="color: var(--text-sub) !important;">
-                            A diferencia de una webcam USB convencional que sobrecarga el procesador, la cámara OV5647 NoIR se conecta mediante un cable plano flexible (FFC) directamente al puerto **CSI (Camera Serial Interface)** de la Raspberry Pi[cite: 5, 7, 14].
+                            A diferencia de una webcam USB convencional que sobrecarga el procesador, la cámara OV5647 NoIR se conecta mediante un cable plano flexible (FFC) directamente al puerto <strong>CSI (Camera Serial Interface)</strong> de la Raspberry Pi.
                         </p>
                         <ul style="color: var(--text-sub) !important;" class="small">
-                            <li><strong>Buses Diferenciales MIPI CSI-2:</strong> Transmite píxeles crudos (RAW) a alta velocidad[cite: 5, 14].</li>
-                            <li><strong>Bus I2C de Control:</strong> Ajusta tiempo de exposición, ganancia y balance de blancos[cite: 5].</li>
+                            <li><strong>Buses Diferenciales MIPI CSI-2:</strong> Transmite píxeles crudos (RAW) a alta velocidad.</li>
+                            <li><strong>Bus I2C de Control:</strong> Ajusta tiempo de exposición, ganancia y balance de blancos.</li>
                             <li><strong>ISP Dedicado por Hardware:</strong> El Procesador de Señal de Imagen de la GPU ejecuta la conversión primaria de color sin consumir CPU.</li>
                         </ul>
                     </div>
@@ -280,7 +280,7 @@
                     <div class="card-tech p-4">
                         <h5 style="color: var(--accent-green) !important;" class="mb-3">El Principio "Zero-Copy" (Memoria Compartida)</h5>
                         <p style="color: var(--text-sub) !important;">
-                            Para garantizar visualización fluida sin congelamientos, `Picamera2` implementa acceso directo a buffers de memoria RAM compartida[cite: 5, 6, 14]:
+                            Para garantizar visualización fluida sin congelamientos, <code>Picamera2</code> implementa acceso directo a buffers de memoria RAM compartida:
                         </p>
                         <div class="p-3 bg-black rounded border border-secondary small mb-2">
                             <span class="text-danger">❌ Sin Zero-Copy:</span> Copiar imágenes de la GPU a la CPU consume ciclos de reloj y produce latencia visual.
@@ -305,25 +305,25 @@
                     <div class="col-md-3">
                         <div class="p-3 bg-dark rounded border border-secondary h-100">
                             <h6 class="text-warning">1. Escala de Grises</h6>
-                            <p style="color: var(--text-sub) !important;" class="small">Aísla la matriz de intensidad fotónica eliminando información cromática redundante[cite: 6, 8, 21].</p>
+                            <p style="color: var(--text-sub) !important;" class="small">Aísla la matriz de intensidad fotónica eliminando información cromática redundante.</p>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="p-3 bg-dark rounded border border-secondary h-100">
                             <h6 class="text-info">2. Filtro Bilateral / Gaussiano</h6>
-                            <p style="color: var(--text-sub) !important;" class="small">Atenúa el grano térmico de la cámara y el vello cutáneo conservando la nitidez de los bordes[cite: 8, 21, 29].</p>
+                            <p style="color: var(--text-sub) !important;" class="small">Atenúa el grano térmico de la cámara y el vello cutáneo conservando la nitidez de los bordes.</p>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="p-3 bg-dark rounded border border-secondary h-100">
                             <h6 style="color: var(--accent-cyan) !important;">3. CLAHE Adaptativo</h6>
-                            <p style="color: var(--text-sub) !important;" class="small">Divide la imagen en losetas de 8x8 e iguala el contraste local sin ampliar el ruido de fondo[cite: 6, 8, 29].</p>
+                            <p style="color: var(--text-sub) !important;" class="small">Divide la imagen en losetas de 8x8 e iguala el contraste local sin ampliar el ruido de fondo.</p>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="p-3 bg-dark rounded border border-secondary h-100">
                             <h6 style="color: var(--accent-green) !important;">4. Ajuste Gamma & Contraste</h6>
-                            <p style="color: var(--text-sub) !important;" class="small">Centra el contraste en el valor neutro 128 para profundizar las venas sin sobreexponer el fondo[cite: 8, 14, 28].</p>
+                            <p style="color: var(--text-sub) !important;" class="small">Centra el contraste en el valor neutro 128 para profundizar las venas sin sobreexponer el fondo.</p>
                         </div>
                     </div>
                 </div>
@@ -339,7 +339,7 @@
                 <div class="col-md-4">
                     <div class="card-tech p-4">
                         <h6 class="text-warning">Proyección Directa Pico DLP</h6>
-                        <p style="color: var(--text-sub) !important;" class="small mb-0">Reincorporación de un microproyector laser/DLP para reflejar el mapa vascular procesado directamente sobre la piel del paciente en tiempo real[cite: 5, 11, 13].</p>
+                        <p style="color: var(--text-sub) !important;" class="small mb-0">Reincorporación de un microproyector laser/DLP para reflejar el mapa vascular procesado directamente sobre la piel del paciente en tiempo real.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -362,8 +362,8 @@
     <!-- FOOTER -->
     <footer class="text-center py-4 border-top border-secondary text-muted small">
         <div class="container">
-            <p style="color: var(--text-sub) !important;" class="mb-1"><strong>OVTIX</strong> — Sistema Óptico para Visualización Vascular con Tecnología Infrarroja[cite: 1, 16]</p>
-            <p style="color: var(--text-muted-custom) !important;" class="mb-0">Proyecto de Investigación Técnica | Instituto Luis M. Robles - Universidad Blas Pascal[cite: 1, 24]</p>
+            <p style="color: var(--text-sub) !important;" class="mb-1"><strong>OVTIX</strong> — Sistema Óptico para Visualización Vascular con Tecnología Infrarroja</p>
+            <p style="color: var(--text-muted-custom) !important;" class="mb-0">Proyecto de Investigación Técnica | Instituto Luis M. Robles - Universidad Blas Pascal</p>
         </div>
     </footer>
 
