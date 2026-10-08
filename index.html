@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OVTIX - Informe Técnico y de Desarrollo</title>
+    <title>OVTIX - Dossier Técnico de Investigación Vascular</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Iconos FontAwesome -->
@@ -32,7 +32,7 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3, h4, .font-heading {
+        h1, h2, h3, h4, h5, .font-heading {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
         }
@@ -42,17 +42,17 @@
         }
 
         .hero-section {
-            background: radial-gradient(circle at 50% 20%, rgba(138, 43, 226, 0.2) 0%, rgba(7, 10, 15, 1) 70%);
+            background: radial-gradient(circle at 50% 20%, rgba(138, 43, 226, 0.25) 0%, rgba(7, 10, 15, 1) 70%);
             border-bottom: 1px solid var(--card-border);
-            padding: 4rem 1rem 3rem 1rem;
+            padding: 4.5rem 1rem 3.5rem 1rem;
         }
 
         .card-tech {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 12px;
-            transition: transform 0.25s ease, border-color 0.25s ease;
             height: 100%;
+            transition: border-color 0.25s ease;
         }
 
         .card-tech:hover {
@@ -68,28 +68,11 @@
             border-radius: 6px;
         }
 
-        .timeline-item {
-            position: relative;
-            padding-left: 2rem;
-            border-left: 2px solid var(--card-border);
-            margin-bottom: 1.8rem;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -7px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent-cyan);
-        }
-
         .problem-box {
             background: rgba(255, 171, 0, 0.05);
             border-left: 4px solid var(--accent-orange);
             border-radius: 4px;
-            padding: 1rem;
+            padding: 1.2rem;
             margin-bottom: 1rem;
         }
 
@@ -97,8 +80,16 @@
             background: rgba(0, 255, 135, 0.05);
             border-left: 4px solid var(--accent-green);
             border-radius: 4px;
-            padding: 1rem;
+            padding: 1.2rem;
             margin-bottom: 1rem;
+        }
+
+        .qa-box {
+            background: #161b22;
+            border-left: 4px solid var(--accent-cyan);
+            border-radius: 6px;
+            padding: 1.2rem;
+            margin-bottom: 1.2rem;
         }
 
         .nav-pills .nav-link {
@@ -110,6 +101,11 @@
             background-color: var(--accent-purple);
             color: #fff;
         }
+
+        .section-divider {
+            border-top: 1px solid var(--card-border);
+            margin: 4rem 0;
+        }
     </style>
 </head>
 <body>
@@ -118,19 +114,22 @@
     <header class="hero-section text-center">
         <div class="container">
             <div class="d-flex justify-content-center gap-2 mb-3 flex-wrap">
-                <span class="badge-tag"><i class="fa-solid fa-graduation-cap me-1"></i> INSTITUTO LUIS M. ROBLES</span>
+                <span class="badge-tag"><i class="fa-solid fa-graduation-cap me-1"></i> EXPO UNIVERSIDAD BLAS PASCAL</span>
                 <span class="badge-tag"><i class="fa-solid fa-microchip me-1"></i> RASPBERRY PI 3B+</span>
-                <span class="badge-tag"><i class="fa-solid fa-eye me-1"></i> OPTICA NIR 850nm</span>
-                <span class="badge-tag"><i class="fa-solid fa-code me-1"></i> OPENCV + PYTHON</span>
+                <span class="badge-tag"><i class="fa-solid fa-eye me-1"></i> NIR 850nm</span>
+                <span class="badge-tag"><i class="fa-solid fa-code me-1"></i> OPENCV + ZERO-COPY</span>
             </div>
             <h1 class="display-3 text-white mb-2">OVTIX</h1>
-            <p class="lead text-info font-heading">Sistema Óptico Infrarrojo para Visualización Vascular Subcutánea</p>
-            <p class="text-muted mx-auto style-desc" style="max-width: 750px;">
-                Informe técnico completo del prototipo de investigación sobre absorción óptica espectral, procesamiento de imágenes en tiempo real y arquitectura de hardware. Presentado en la Expo Universidad Blas Pascal.
+            <p class="lead text-info font-heading">Sistema Óptico para Visualización de Estructuras Vasculares con Tecnología Infrarroja</p>
+            <p class="text-muted mx-auto" style="max-width: 800px;">
+                Dossier técnico integral de ingeniería biomédica, espectroscopía NIR de bajo costo, visión por computadora y arquitectura embebida para asistencia en accesos venosos.
             </p>
-            <p class="small text-secondary mt-2">
-                <strong>Integrantes:</strong> Jazmín Van de Koppel, Gonzalo Molina, Tomás Reyna | <strong>Docentes:</strong> Saravia Martín, Sánchez Gustavo
-            </p>
+            <div class="p-3 bg-dark d-inline-block rounded border border-secondary mt-2">
+                <small class="text-secondary">
+                    <strong>Desarrollado por:</strong> Jazmín Van de Koppel, Gonzalo Molina, Tomás Reyna <br>
+                    <strong>Institución:</strong> Instituto Técnico Luis M. Robles | <strong>Docentes:</strong> Saravia Martín, Sánchez Gustavo
+                </small>
+            </div>
         </div>
     </header>
 
@@ -138,194 +137,227 @@
 
         <!-- NAVEGACIÓN -->
         <ul class="nav nav-pills justify-content-center mb-5 gap-2" id="mainTabs">
-            <li class="nav-item"><a class="nav-link active" href="#solucion"><i class="fa-solid fa-heart-pulse me-1"></i> Problemática y Solución</a></li>
-            <li class="nav-item"><a class="nav-link" href="#fundamento"><i class="fa-solid fa-wave-square me-1"></i> Fundamento Óptico</a></li>
-            <li class="nav-item"><a class="nav-link" href="#obstaculos"><i class="fa-solid fa-triangle-exclamation me-1"></i> Desafíos y Problemas</a></li>
-            <li class="nav-item"><a class="nav-link" href="#hardware"><i class="fa-solid fa-cubes me-1"></i> Especificaciones</a></li>
-            <li class="nav-item"><a class="nav-link" href="#bitacora"><i class="fa-solid fa-timeline me-1"></i> Bitácora y Tiempos</a></li>
+            <li class="nav-item"><a class="nav-link active" href="#problematica"><i class="fa-solid fa-heart-pulse me-1"></i> Problemática y Solución</a></li>
+            <li class="nav-item"><a class="nav-link" href="#fisica"><i class="fa-solid fa-wave-square me-1"></i> Física Óptica (NIR)</a></li>
+            <li class="nav-item"><a class="nav-link" href="#hardware-conexion"><i class="fa-solid fa-network-wired me-1"></i> Interfaz CSI y Zero-Copy</a></li>
+            <li class="nav-item"><a class="nav-link" href="#algoritmos"><i class="fa-solid fa-code me-1"></i> Pipeline de Visión</a></li>
+            <li class="nav-item"><a class="nav-link" href="#desafios"><i class="fa-solid fa-triangle-exclamation me-1"></i> Desafíos y Ajustes</a></li>
+            <li class="nav-item"><a class="nav-link" href="#defensa"><i class="fa-solid fa-graduation-cap me-1"></i> Defensa Académica</a></li>
+            <li class="nav-item"><a class="nav-link" href="#futuro"><i class="fa-solid fa-rocket me-1"></i> Futuras Mejoras</a></li>
         </ul>
 
-        <!-- SECCIÓN 1: PROBLEMÁTICA Y SOLUCIÓN BRINDADA -->
-        <section id="solucion" class="mb-5">
-            <h3 class="text-white mb-4"><i class="fa-solid fa-bullseye text-danger me-2"></i>Problemática y Propuesta de Valor</h3>
+        <!-- SECCIÓN 1: PROBLEMÁTICA Y PROPUESTA DE VALOR -->
+        <section id="problematica" class="mb-5">
+            <h3 class="text-white mb-4"><i class="fa-solid fa-bullseye text-danger me-2"></i>1. Problemática Clínica y Solución Planteada</h3>
             <div class="row g-4">
                 <div class="col-lg-6">
                     <div class="card-tech p-4">
-                        <h4 class="text-warning mb-3">La Problemática Clínica</h4>
+                        <h4 class="text-warning mb-3">El Desafío del Acceso Vascular</h4>
                         <p>
-                            La localización de estructuras venosas para punciones, extracciones de sangre o colocación de vías intravenosas representa un reto diario en la atención sanitaria. Dificultades anatómicas o fisiológicas (profundidad del vaso, tono de piel, vello, hipotensión o fragilidad vascular en adultos mayores y pacientes pediátricos) incrementan las punciones fallidas, generando incomodidad y retrasos terapéuticos.
+                            La venopunción (extracción de sangre, canalización o colocación de vías) es uno de los procedimientos médicos más frecuentes. Sin embargo, su tasa de fallo en el primer intento alcanza hasta un <strong>30% en adultos</strong> y supera el <strong>50% en pacientes pediátricos, geriátricos, con obesidad o en estados de shock</strong>.
                         </p>
                         <p class="text-muted small">
-                            Los dispositivos comerciales capaces de resolver este problema mediante proyección o visualización infrarroja poseen costos elevados que dificultan su adopción masiva en instituciones educativas o centros de salud de bajos recursos.
+                            Factores como la profundidad del vaso, la escasa visibilidad bajo iluminación blanca, el vello corporal, la pigmentación cutánea y el colapso venoso dificultan la localización por palpación visual. Los equipos comerciales (como AccuVein o VivoLight) resuelven esto pero cuestan miles de dólares, siendo inaccesibles para muchas instituciones.
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="card-tech p-4">
-                        <h4 style="color: var(--accent-green);" class="mb-3">La Solución Planteada por OVTIX</h4>
+                        <h4 style="color: var(--accent-green);" class="mb-3">La Solución Integrada OVTIX</h4>
                         <p>
-                            OVTIX propone un prototipo funcional de bajo costo que combina iluminación infrarroja cercana (NIR) a 850 nm, una cámara modificada sensible a este espectro (NoIR) y un sistema embebido de cómputo basado en Raspberry Pi.
+                            OVTIX democratiza el acceso a esta tecnología mediante un prototipo modular de bajo costo (aproximadamente ARS $500.000 de presupuesto integral) que combina:
                         </p>
-                        <p>
-                            A través de técnicas avanzadas de visión por computadora (procesamiento digital mediante OpenCV en Python), el sistema realza el contraste entre el mapa vascular subcutáneo y los tejidos circundantes en tiempo real, ofreciendo una imagen clara y calibrada en pantalla externa.
-                        </p>
+                        <ul class="text-muted small">
+                            <li><strong>Iluminación Activa NIR a 850 nm:</strong> Penetra el tejido superficial e ilumina la zona analizada.</li>
+                            <li><strong>Captura Sensible sin Filtro IR:</strong> Cámara OV5647 NoIR conectada por bus CSI.</li>
+                            <li><strong>Procesamiento Digital de Alta Velocidad:</strong> Reducción de ruido y realce adaptativo de contraste en Python/OpenCV sobre Raspberry Pi 3B+.</li>
+                            <li><strong>Gabinete Modular de MDF (46 cm):</strong> Distancia focal y luz controladas para repetibilidad clínica.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 2: FUNDAMENTO FÍSICO Y ÓPTICO -->
-        <section id="fundamento" class="mb-5">
+        <div class="section-divider"></div>
+
+        <!-- SECCIÓN 2: FÍSICA Y PRINCIPIOS ÓPTICOS -->
+        <section id="fisica" class="mb-5">
             <div class="card-tech p-4">
-                <h3 class="text-white mb-4"><i class="fa-solid fa-lightbulb text-warning me-2"></i>Principios Físicos de Funcionamiento</h3>
+                <h3 class="text-white mb-4"><i class="fa-solid fa-lightbulb text-warning me-2"></i>2. Fundamento Físico: Absorción Espectral de la Hemoglobina</h3>
                 <div class="row g-4">
                     <div class="col-md-6">
-                        <h5 class="text-info">Absorción Espectral Diferencial</h5>
+                        <h5 class="text-info">La Ventana Óptica del Tejido</h5>
                         <p>
-                            El tejido subcutáneo transmite y dispersa la luz visible. Sin embargo, en la ventana óptica del infrarrojo cercano (especialmente a 850 nm), la <strong>desoxhemoglobina</strong> contenida en la sangre venosa presenta un alto índice de absorción fotónica.
+                            La piel y la grasa humana son altamente dispersantes para la luz visible (400 - 700 nm). Sin embargo, en el rango del **Infrarrojo Cercano (NIR)**, entre 700 nm y 900 nm, existe una "ventana óptica" donde la luz penetra varios milímetros bajo la epidermis.
                         </p>
                         <p>
-                            Mientras la piel y el tejido graso reflejan la mayor parte de la radiación emitida por los LEDs de 850 nm, las venas absorben esta radiación, generando una atenuación relativa ("sombra óptica natural") que es capturada por el sensor óptico.
+                            A la longitud de onda específica de <strong>850 nm</strong>, la **desoxhemoglobina** presente en la sangre venosa posee un coeficiente de absorción significativamente mayor que el agua, la melanina y los tejidos circundantes.
                         </p>
                     </div>
                     <div class="col-md-6">
-                        <h5 class="text-info">Pipeline de Procesamiento Digital</h5>
-                        <p>
-                            La imagen bruta recibida por la cámara NoIR pasa por una secuencia matemática optimizada:
+                        <h5 class="text-info">Mecanismo de Generación de Contraste</h5>
+                        <div class="p-3 bg-black rounded border border-secondary code-font small text-success mb-3">
+                            Luz NIR (850nm) ---> Incide sobre la piel<br>
+                            ├── Piel / Grasa: REFLEJAN la luz NIR ---> Fotones regresan a la cámara<br>
+                            └── Venas (Desoxhemoglobina): ABSORBEN la luz NIR ---> Sombra de baja intensidad
+                        </div>
+                        <p class="text-muted small">
+                            La cámara captura una matriz de gradientes de gris donde las venas se manifiestan como valles oscuros de bajo valor de píxel.
                         </p>
-                        <ol class="text-muted small">
-                            <li class="mb-1"><strong>Conversión a Escala de Grises:</strong> Aislamiento de intensidad cromática.</li>
-                            <li class="mb-1"><strong>Filtrado Espacial / Bilateral:</strong> Atenuación de grano de sensor y vello cutáneo sin perder nitidez en los bordes vasculares.</li>
-                            <li class="mb-1"><strong>CLAHE (Ecualización Adaptativa de Histograma):</strong> Compensación de la iluminación ambiental heterogénea en regiones locales de 8x8.</li>
-                            <li class="mb-1"><strong>Ajuste de Gamma y Contraste Centrado en 128:</strong> Oscurecimiento no lineal de los valles venosos sin sobreexponer el fondo.</li>
-                        </ol>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 3: OBSTÁCULOS Y DESAFÍOS REALES -->
-        <section id="obstaculos" class="mb-5">
-            <h3 class="text-white mb-4"><i class="fa-solid fa-triangle-exclamation text-orange me-2" style="color: var(--accent-orange);"></i>Desafíos Técnicos y Problemas Resueltos</h3>
+        <div class="section-divider"></div>
+
+        <!-- SECCIÓN 3: INTERFAZ CSI Y CONEXIÓN ZERO-COPY -->
+        <section id="hardware-conexion" class="mb-5">
+            <h3 class="text-white mb-4"><i class="fa-solid fa-network-wired text-purple me-2"></i>3. Arquitectura Hardware: Conexión CSI y Mapeo Zero-Copy</h3>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card-tech p-4">
+                        <h5 class="text-cyan mb-3">Conexión Física (Interfaz CSI)</h5>
+                        <p>
+                            A diferencia de una webcam USB que comprime video en JPG generando sobrecarga en la CPU, la cámara OV5647 NoIR se conecta mediante una **cinta flexible (FFC) de 15 pines** directa al puerto **CSI (Camera Serial Interface)** de la Raspberry Pi.
+                        </p>
+                        <ul class="text-muted small">
+                            <li><strong>Transmisión Diferencial MIPI CSI-2:</strong> Transmite píxeles crudos (RAW) a altísima velocidad.</li>
+                            <li><strong>Bus I2C Integrado:</strong> Controla parámetros del sensor (exposición, ganancia, balance de blancos).</li>
+                            <li><strong>Procesamiento por ISP dedicado:</strong> La conversión primaria se ejecuta en la GPU de la Pi sin tocar el procesador central.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card-tech p-4">
+                        <h5 class="text-success mb-3">El Principio "Zero-Copy" (Memoria Compartida)</h5>
+                        <p>
+                            En un sistema convencional, la imagen capturada se duplica en RAM varias veces antes de ser procesada. <strong>Zero-Copy elimina la duplicación inútil de datos:</strong>
+                        </p>
+                        <div class="p-3 bg-black rounded border border-secondary text-muted small mb-2">
+                            <span class="text-danger">❌ Sin Zero-Copy:</span> Sensor → ISP → Buffer GPU → Copia a RAM CPU → Copia a Array Python (Lento / Latencia de FPS).<br><br>
+                            <span class="text-success">✔ Con Zero-Copy (Picamera2):</span> El ISP escribe en un buffer de memoria compartida. Python accede directamente a ese puntero como un arreglo NumPy.
+                        </div>
+                        <p class="text-muted small mb-0">
+                            <strong>Resultado:</strong> Procesamiento constante a 30 FPS a $640 \times 480$ sin retrasos ni congelamientos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- SECCIÓN 4: PIPELINE DIGITAL DE VISIÓN -->
+        <section id="algoritmos" class="mb-5">
+            <h3 class="text-white mb-4"><i class="fa-solid fa-code text-info me-2"></i>4. Pipeline de Procesamiento Digital de Imágenes</h3>
             <div class="card-tech p-4">
-                <p class="text-muted mb-4">
-                    Durante los meses de desarrollo se presentaron diversos inconvenientes técnicos registrados en la bitácora del proyecto:
-                </p>
+                <div class="row g-4">
+                    <div class="col-md-3">
+                        <div class="p-3 bg-dark rounded border border-secondary h-100">
+                            <h6 class="text-warning">1. Conversión Grayscale</h6>
+                            <p class="text-muted small">Descarta información de color innecesaria y aísla la matriz de intensidad de fotones absorbidos/reflejados.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 bg-dark rounded border border-secondary h-100">
+                            <h6 class="text-info">2. Filtro Bilateral Adaptativo</h6>
+                            <p class="text-muted small">A diferencia del filtro Gaussiano que borra bordes, el filtro Bilateral reduce el grano térmico y el vello preservando las fronteras del vaso.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 bg-dark rounded border border-secondary h-100">
+                            <h6 style="color: var(--accent-cyan);">3. Ecualización CLAHE</h6>
+                            <p class="text-muted small">Dividido en losetas de $8 \times 8$, limita la amplificación de contraste para que la luz ambiental desigual no queme la imagen.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 bg-dark rounded border border-secondary h-100">
+                            <h6 style="color: var(--accent-green);">4. Ajuste Gamma & Contraste 128</h6>
+                            <p class="text-muted small">Centrar el contraste en el valor neutro 128 oscurece los valles vasculares sin alterar ni Blanquear la piel expuesta.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <div class="section-divider"></div>
+
+        <!-- SECCIÓN 5: DESAFÍOS TÉCNICOS Y AJUSTES -->
+        <section id="desafios" class="mb-5">
+            <h3 class="text-white mb-4"><i class="fa-solid fa-triangle-exclamation text-orange me-2"></i>5. Obstáculos Reales de Desarrollo y Soluciones</h3>
+            <div class="card-tech p-4">
                 <div class="problem-box">
-                    <h6 class="text-warning mb-1"><i class="fa-solid fa-plug me-2"></i>1. Caídas de Tensión y Alimentación de LEDs</h6>
+                    <h6 class="text-warning mb-1"><i class="fa-solid fa-plug me-2"></i>Caídas de Tensión por Alimentación de LEDs</h6>
                     <p class="text-muted small mb-0">
-                        Los módulos LED infrarrojos de 3W demandaban picos de corriente que generaban advertencias de subvoltaje (*undervoltage*) en la Raspberry Pi 3B+. <strong>Solución:</strong> Se aisló la alimentación de la iluminación mediante un circuito controlador dedicado y se incorporó una fuente regulada conmutada de 5V / 3A con conector industrial IEC.
+                        Los módulos LED de 3W provocaban caídas de voltaje en la Raspberry Pi. <strong>Solución:</strong> Se aisló la línea de energía con un driver de corriente dedicado y una fuente conmutada de 5V / 3A con conector industrial IEC.
                     </p>
                 </div>
-
                 <div class="problem-box">
-                    <h6 class="text-warning mb-1"><i class="fa-solid fa-bug me-2"></i>2. Latencia y Cuellos de Botella en el Procesamiento</h6>
+                    <h6 class="text-warning mb-1"><i class="fa-solid fa-bug me-2"></i>Saturación de CPU en Filtros de Frangi/Sato</h6>
                     <p class="text-muted small mb-0">
-                        Filtros matriciales complejos (como Frangi o Sato basados en matrices Hessianas) provocaban caídas bruscas de fotogramas por segundo (FPS). <strong>Solución:</strong> Se implementó la librería `Picamera2` integrada con `libcamera` para utilizar buffers de memoria *Zero-Copy*, ajustando la resolución matemática de entrada a 640x480 sin saturar la CPU.
+                        Los filtros basados en Hessian tienen complejidad $O(N^2)$. <strong>Solución:</strong> Se redujo la resolución de cálculo en el motor matemático a $640 \times 480$ manteniendo el render fluido a 30 FPS.
                     </p>
                 </div>
-
                 <div class="problem-box">
-                    <h6 class="text-warning mb-1"><i class="fa-solid fa-sun me-2"></i>3. Saturación y Ruido por Luz Ambiental</h6>
+                    <h6 class="text-warning mb-1"><i class="fa-solid fa-sun me-2"></i>Reflejos y Luz Ambiente Inundante</h6>
                     <p class="text-muted small mb-0">
-                        Fuentes de luz blanca o ventanas distorsionaban el contraste local. <strong>Solución:</strong> Se descartó la umbralización estática y se adoptó el algoritmo CLAHE adaptativo combinado con corrección de contraste centrado en el valor neutro (128).
-                    </p>
-                </div>
-
-                <div class="problem-box">
-                    <h6 class="text-warning mb-1"><i class="fa-solid fa-drafting-compass me-2"></i>4. Estabilidad Mecánica y Focal</h6>
-                    <p class="text-muted small mb-0">
-                        Capturar manualmente con la cámara generaba movimientos y variaciones de distancia. <strong>Solución:</strong> Se diseñó un gabinete físico en madera MDF de 46 cm de altura que fija la distancia exacta entre el área de análisis, la cámara y el anillo LED.
+                        Luces de techo distorsionaban la imagen. <strong>Solución:</strong> Se diseñó un gabinete cerrado en MDF de 46 cm de altura que actúa como cámara oscura estandarizada.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 4: ESPECIFICACIONES DE HARDWARE -->
-        <section id="hardware" class="mb-5">
+        <div class="section-divider"></div>
+
+        <!-- SECCIÓN 6: DEFENSA TÉCNICA ACADÉMICA (Q&A) -->
+        <section id="defensa" class="mb-5">
+            <h3 class="text-white mb-4"><i class="fa-solid fa-graduation-cap text-success me-2"></i>6. Preguntas y Respuestas para la Evaluación Académica</h3>
             <div class="card-tech p-4">
-                <h3 class="text-white mb-4"><i class="fa-solid fa-microchip text-info me-2"></i>Especificaciones Técnicas del Prototipo</h3>
-                <div class="table-responsive">
-                    <table class="table table-dark table-striped align-middle border-secondary">
-                        <thead>
-                            <tr>
-                                <th>Componente</th>
-                                <th>Especificación Técnica</th>
-                                <th>Función en el Sistema</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Procesador</strong></td>
-                                <td>Raspberry Pi 3 Model B+</td>
-                                <td>Unidad central de cálculo, ejecuta la pila de software en Python y OpenCV.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Cámara</strong></td>
-                                <td>OV5647 NoIR (5 Megapíxeles)</td>
-                                <td>Captura imágenes eliminando el filtro de bloqueo IR para absorber luz de 850 nm.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Iluminación</strong></td>
-                                <td>LEDs Infrarrojos 850 nm (3W)</td>
-                                <td>Emisión de longitud de onda óptima para ser absorbida por la desoxhemoglobina.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Software / Librerías</strong></td>
-                                <td>Python, OpenCV, Picamera2, Flask</td>
-                                <td>Adquisición de video, filtrado matricial, ajuste adaptativo y servidor web.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Estructura</strong></td>
-                                <td>Gabinete de MDF (46 x 27 x 27 cm)</td>
-                                <td>Soporte cerrado rígido para asegurar iluminación constante y distancia focal fija.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="qa-box">
+                    <h6 class="text-info mb-1">¿Por qué usar el Filtro de Frangi en lugar de Canny?</h6>
+                    <p class="text-muted small mb-0">
+                        Canny busca cualquier cambio brusco de intensidad (como arrugas, bordes o pelos), generando falsos positivos. Frangi calcula los autovalores de la matriz Hessiana para evaluar la "tubularidad" geométrica, identificando únicamente vasos sanguíneos cilíndricos.
+                    </p>
+                </div>
+                <div class="qa-box">
+                    <h6 class="text-info mb-1">¿Por qué CLAHE y no ecualización de histograma tradicional?</h6>
+                    <p class="text-muted small mb-0">
+                        La ecualización tradicional es global y sobreexpone regiones con mucha luz mientras amplifica dramáticamente el ruido de fondo. CLAHE opera localmente ($8 \times 8$) limitando el contraste para no generar grano.
+                    </p>
+                </div>
+                <div class="qa-box">
+                    <h6 class="text-info mb-1">¿Por qué Python no resulta lento en este prototipo?</h6>
+                    <p class="text-muted small mb-0">
+                        Python actúa únicamente como orquestador. La captura usa `Picamera2` (C++ nativo), la memoria usa Zero-Copy y los filtros de OpenCV/Scikit-Image ejecutan rutinas compiladas en C paralelizadas.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 5: BITÁCORA Y LÍNEA DE TIEMPO -->
-        <section id="bitacora" class="mb-5">
-            <h3 class="text-white mb-4"><i class="fa-solid fa-clock-rotate-left text-purple me-2"></i>Cronología y Tiempos del Proyecto (Bitácora)</h3>
-            <div class="card-tech p-4">
-                <p class="text-muted mb-4">Duración total estimada del proyecto: <strong>6 meses y 20 días</strong> (Inicio: 17 de Marzo de 2026).</p>
+        <div class="section-divider"></div>
 
-                <div class="timeline-item">
-                    <h6 class="text-info mb-1">17 al 29 de Marzo de 2026 — Investigación y Selección de Componentes</h6>
-                    <p class="text-muted small mb-0">Definición de la problemática vascular. Análisis teórico del espectro NIR. Elección de la Raspberry Pi 3B+ como unidad de procesamiento accesible.</p>
+        <!-- SECCIÓN 7: FUTURAS MEJORAS -->
+        <section id="futuro" class="mb-5">
+            <h3 class="text-white mb-4"><i class="fa-solid fa-rocket text-purple me-2"></i>7. Prospectiva y Futuras Mejoras del Sistema</h3>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card-tech p-4">
+                        <h6 class="text-warning">Proyección Directa DLP</h6>
+                        <p class="text-muted small mb-0">Integración de un microproyector pico DLP para proyectar el mapa vascular devuelto directamente sobre la piel del paciente en tiempo real.</p>
+                    </div>
                 </div>
-
-                <div class="timeline-item">
-                    <h6 class="text-info mb-1">18 de Abril de 2026 — Selección de Óptica e Iluminación</h6>
-                    <p class="text-muted small mb-0">Pruebas con el sensor OV5647 NoIR y definición de LEDs infrarrojos de 850 nm y 3W de potencia.</p>
+                <div class="col-md-4">
+                    <div class="card-tech p-4">
+                        <h6 class="text-cyan" style="color: var(--accent-cyan);">Inteligencia Artificial (MobileNet-UNet)</h6>
+                        <p class="text-muted small mb-0">Sustitución de filtros manuales por redes neuronales ligeras optimizadas para segmentación vascular inmune a tatuajes y cicatrices.</p>
+                    </div>
                 </div>
-
-                <div class="timeline-item">
-                    <h6 class="text-info mb-1">22 de Mayo al 11 de Junio de 2026 — Pruebas de Procesamiento y Algoritmos</h6>
-                    <p class="text-muted small mb-0">Primeras capturas de prueba. Implementación de ecualización CLAHE, filtros Gaussianos y evaluación de detección de bordes y umbralización.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <h6 class="text-info mb-1">17 de Junio al 27 de Junio de 2026 — Resolución de Problemas de Software y Energía</h6>
-                    <p class="text-muted small mb-0">Corrección de dependencias en Raspberry Pi OS. Diagnóstico de caídas de tensión y migración a la librería nativa `Picamera2`.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <h6 class="text-info mb-1">19 de Julio al 10 de Agosto de 2026 — Modularización y Parámetros</h6>
-                    <p class="text-muted small mb-0">Reorganización del código en Python para separar captura, procesamiento y parámetros de brillo/contraste de forma dinámica.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <h6 class="text-info mb-1">21 de Agosto al 25 de Agosto de 2026 — Maquetado Físico y Planos</h6>
-                    <p class="text-muted small mb-0">Construcción de prototipo funcional en cartón para validar proporciones. Elaboración de planos técnicos con salidas HDMI y conectores IEC.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <h6 class="text-info mb-1">Septiembre a Octubre de 2026 — Ensamblaje en MDF y Presentación</h6>
-                    <p class="text-muted small mb-0">Fabricación del gabinete definitivo en MDF. Optimización final del servidor de visualización y elaboración de material de difusión para la exposición.</p>
+                <div class="col-md-4">
+                    <div class="card-tech p-4">
+                        <h6 class="text-success" style="color: var(--accent-green);">Filtros Ópticos Pasa-Altas</h6>
+                        <p class="text-muted small mb-0">Incorporación de un cristal filtrante físico ($>750\text{ nm}$) frente al lente para anular el 100% de la luz visible no deseada.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -335,8 +367,8 @@
     <!-- FOOTER -->
     <footer class="text-center py-4 border-top border-secondary text-muted small">
         <div class="container">
-            <p class="mb-1"><strong>OVTIX</strong> — Sistema Óptico Infrarrojo para Visualización Vascular Subcutánea</p>
-            <p class="mb-0">Instituto Técnico Luis M. Robles | Universidad Blas Pascal | Córdoba, Argentina (2026)</p>
+            <p class="mb-1"><strong>OVTIX</strong> — Sistema Óptico para Visualización Vascular con Tecnología Infrarroja</p>
+            <p class="mb-0">Proyecto de Investigación Técnica | Instituto Luis M. Robles - Universidad Blas Pascal (2026)</p>
         </div>
     </footer>
 
